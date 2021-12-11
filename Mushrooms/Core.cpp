@@ -22,7 +22,7 @@ int main()
 		switch (check)
 		{
 		case 1:
-			MyPlantation->showMushrooms2();
+			MyPlantation->showMushrooms();
 			system("pause");
 			system("cls");
 			break;
@@ -34,9 +34,9 @@ int main()
 			system("cls");
 			break;
 		case 3:
-			char name2[100];
-			cout << "\nВведите название: "; 
-			gets_s(name2, 100);
+			
+			
+		
 
 			MyPlantation->claimMushrooms(1);
 ;

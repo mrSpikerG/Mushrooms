@@ -30,7 +30,11 @@ public:
 				TEMP[i] = plantation[i];
 			}*/
 			
-			plantation[size] = new c_mushroom();
+			cout << "\nВведите имя гриба:";
+			char* name = new char[100];
+			gets_s(name, 100);
+			
+			plantation[size] = new c_mushroom(name);
 			size++;
 			
 			//plantation = TEMP;
@@ -40,19 +44,20 @@ public:
 	}
 
 	void claimMushrooms(int id) {
+
+		cout << "\nВведите название: ";
+		char* MushroomName = new char[100];
+		gets_s(MushroomName, 100);
+
 		for (int i = 0; i < size; i++) {
 
 			//поиск нужного гриба
-			if (id ==i+1) {
+			if (_stricmp(MushroomName,plantation[i]->getName()) ==0) {
 				
 				//проверка на зрелость
 				if (this->plantation[i]->isGrowed()) {
 					for (int j = i; j < size-1; j++) {
-						
-
 						this->plantation[j] = this->plantation[j + 1];
-				
-
 					}
 					delete this->plantation[size - 1];
 
@@ -68,10 +73,10 @@ public:
 		
 
 	}
-	void showMushrooms2() {
+	void showMushrooms() {
 		for (int i = 0; i < size; i++) {
 
-				cout << "\nId: " <<i+1;
+				cout << "\n"<< plantation[i]->getName()<<": ";
 
 
 			if (this->plantation[i]->getAge() < 0) {
